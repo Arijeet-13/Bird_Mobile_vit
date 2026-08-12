@@ -111,7 +111,7 @@ def run_model(width='w0_75', orig_pth=''):
               state_dict_origin[origin_model_key].size())
         state_dict_custom.update({custom_model_key: state_dict_origin[origin_model_key]})
 
-    pth_name = "../weights/mobilevit-{}.pth".format(width.replace('_', '.'))    # noqa
+    pth_name = "weights/mobilevit-{}.pth".format(width.replace('_', '.'))    # noqa
     print(pth_name)
     torch.save(state_dict_custom, f=pth_name)
 
@@ -120,6 +120,6 @@ if __name__ == "__main__":
     # w0_5, w0_75, w1_0, w1_25, w1_5, w1_75, w2_0 分别对应 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 网络宽度factor
     # 这主要是用来转化官方模型的部分代码，orig_pth_path指的是下载好的官方预训练模型路径，部分转好的模型放在百度云了。
     model_width = 'w0_5'
-    orig_pth_path = "../weights/mobilevitv2-{}.pt".format(      # noqa
+    orig_pth_path = "weights/mobilevitv2-{}.pt".format(      # noqa
         model_width.strip('w').replace('_', '.'))
     run_model(model_width, orig_pth_path)
